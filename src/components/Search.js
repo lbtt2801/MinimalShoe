@@ -6,7 +6,7 @@ const Search = ({placeholder}) => {
   return (
     <View style={styles.container}>
       <Image
-        source={require('../assets/ic_search.png')}
+        source={require('../assets/images/ic_search.png')}
         style={{width: 20, height: 20}}></Image>
       <TextInput
         style={{

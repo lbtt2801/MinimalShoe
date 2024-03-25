@@ -1,11 +1,12 @@
-import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Alert, Image, Pressable, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import { IMAGES } from '../assets/image';
 // import {useNavigation} from '@react-navigation/native';
 
-const Product = ({name, price, data_image}) => {
+const Product = ({id, name, price, data_image}) => {
   // const navigation = useNavigation();
   return (
-    <Pressable onPress={() => navigation.navigate("DetailScreen")}>
+    <Pressable style={{marginTop: id % 2 === 0 ? 15 : 0}}>
       <View style={styles.box_image}>
         <Image
           source={data_image}

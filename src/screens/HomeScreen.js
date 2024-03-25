@@ -1,22 +1,23 @@
-import {TextInput, SafeAreaView} from 'react-native';
+import {TextInput, SafeAreaView, View, Pressable} from 'react-native';
 import React from 'react';
 import Header from '../components/Header';
 import Search from '../components/Search';
 import TopBrands from '../components/TopBrands';
 import Popular from '../components/Popular';
 import Product from '../components/Product';
+import { Text } from 'react-native-paper';
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   return (
-    <SafeAreaView style={{marginHorizontal: 24}}>
+    <View style={{flex: 1, backgroundColor:'#FFF', paddingHorizontal: 24}}>
       <Header
         headerText={'Sneakrs'}
-        headerIcon={require('../assets/ic_notification.png')}
+        headerIcon={require('../assets/images/ic_notification.png')}
       />
-      <Search placeholder={'Search'}/>
-      <TopBrands/>
+      <Search placeholder={'Search'} />
+      <TopBrands />
       <Popular/>
-    </SafeAreaView>
+    </View>
   );
 };
 
