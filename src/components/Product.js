@@ -1,23 +1,39 @@
-import {Alert, Image, Pressable, StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import React from 'react';
-import { IMAGES } from '../assets/image';
-// import {useNavigation} from '@react-navigation/native';
+import {IMAGES} from '../assets/image';
 
-const Product = ({id, name, price, data_image}) => {
-  // const navigation = useNavigation();
+const Product = ({id, name, price, data_image, logo}) => {
   return (
-    <Pressable style={{marginTop: id % 2 === 0 ? 15 : 0}}>
+    <View style={{marginTop: id % 2 === 0 ? 15 : 0}}>
       <View style={styles.box_image}>
         <Image
           source={data_image}
-          style={{width: '100%', height: '100%', resizeMode: 'contain'}}
+          style={{
+            width: '100%',
+            height: '100%',
+            resizeMode: 'contain',
+            alignContent: 'center',
+          }}
+        />
+        <Image
+          source={logo}
+          style={{
+            width: '30%',
+            height: '30%',
+            resizeMode: 'contain',
+            alignContent: 'flex-end',
+            position: 'absolute',
+            right: '10%',
+            bottom: '5%',
+            tintColor:'rgba(0, 0, 0, 0.4)',
+          }}
         />
       </View>
       <View style={{alignItems: 'flex-start'}}>
         <Text style={styles.price}>{price}</Text>
         <Text style={styles.name}>{name}</Text>
       </View>
-    </Pressable>
+    </View>
   );
 };
 
@@ -32,7 +48,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 10,
     marginTop: 35,
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   price: {
     fontWeight: 'bold',

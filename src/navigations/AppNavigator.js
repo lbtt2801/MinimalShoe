@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import {Alert, Pressable, StyleSheet} from 'react-native';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -10,6 +10,7 @@ import {Image} from 'react-native';
 import HeartScreen from '../screens/HeartScreen';
 import CartScreen from '../screens/CartScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import {Text} from 'react-native-paper';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -19,7 +20,10 @@ function BottomTabs() {
     <Tab.Navigator
       initialRouteName="HomeScreen"
       screenOptions={{
-        // headerShown: false,
+        headerShown: false,
+        headerStyle: {
+          backgroundColor: '#fff',
+        },
         tabBarShowLabel: false,
         tabBarActiveTintColor: 'tomato',
         tabBarInactiveTintColor: 'gray',
@@ -28,8 +32,6 @@ function BottomTabs() {
         name="HomeScreen"
         component={HomeScreen}
         options={{
-          title: 'Sneakrs',
-          headerTintColor:'#000000',
           tabBarIcon: ({focused}) => (
             <Image
               source={IMAGES.ic_home}
@@ -81,13 +83,10 @@ function BottomTabs() {
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator
-        initialRouteName="HomeScreen1"
-        screenOptions={{headerShown: false}}>
-        <Stack.Screen name="HomeScreen1" component={BottomTabs} />
-        <Stack.Screen name="DetailScreen1" component={DetailScreen} />
-      </Stack.Navigator> */}
-      <BottomTabs />
+      <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="HomeScreen" component={BottomTabs} />
+        <Stack.Screen name="DetailScreen" component={DetailScreen} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
