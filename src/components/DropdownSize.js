@@ -2,14 +2,15 @@ import {StyleSheet, Text, View, Image} from 'react-native';
 import React, {useState} from 'react';
 import {Dropdown} from 'react-native-element-dropdown';
 import {sizes} from '../MockData';
+import { IMAGES } from '../assets/image';
 
-const DropdownSize = () => {
+const DropdownSize = ({data}) => {
   const [value, setValue] = useState(null);
   const renderItem = item => {
     return (
       <View style={styles.item}>
         <Text style={styles.textItem}>{item.label}</Text>
-        {item.value === value && <Image />}
+        {item.value === value && <Image source={IMAGES.ic_angle_left} style={{width: 20, height: 20}}/>}
       </View>
     );
   };
@@ -20,7 +21,7 @@ const DropdownSize = () => {
       placeholderStyle={styles.placeholderStyle}
       selectedTextStyle={styles.selectedTextStyle}
       iconStyle={styles.iconStyle}
-      data={sizes}
+      data={data}
       maxHeight={300}
       labelField="label"
       valueField="value"

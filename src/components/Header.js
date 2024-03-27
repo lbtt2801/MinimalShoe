@@ -10,6 +10,7 @@ import React from 'react';
 import {IMAGES} from '../assets/image';
 
 export default function Header({
+  headerStyle,
   isShowTitle = true,
   isShowIconLeft = false,
   isShowIconRight = false,
@@ -46,8 +47,7 @@ export default function Header({
   };
 
   return (
-    <View
-      style={{flexDirection: 'row', marginTop: 10, backgroundColor: '#fff', paddingVertical:10}}>
+    <View style={[styles.header, headerStyle]}>
       {isShowIconLeft == true ? HeaderIconLeft() : () => {}}
       <Text style={[styles.title, titleStyle]}>
         {isShowTitle == true ? title : ''}
@@ -58,6 +58,12 @@ export default function Header({
 }
 
 const styles = StyleSheet.create({
+  header: {
+    flexDirection: 'row',
+    marginTop: 10,
+    backgroundColor: '#fff',
+    paddingVertical: 10,
+  },
   title: {
     flex: 1,
     fontSize: 18,
